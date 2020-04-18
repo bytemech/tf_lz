@@ -63,7 +63,6 @@ variable "hub_vnet_rg" {
 variable "hub_vnet_id" {
   description = "ID of the Hub Virtual Network."
   type        = string
-  default     = ""
 }
 
 variable "vnet_ip_space" {

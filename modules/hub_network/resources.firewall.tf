@@ -4,6 +4,11 @@ resource "azurerm_subnet" "firewall" {
   resource_group_name  = azurerm_resource_group.vnet_rg.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefix       = var.firewall_ip_subnet
+
+  lifecycle {
+    ignore_changes = [route_table_id]
+    #Ignore changes to route table to avoid clearing this ID incorrectly. Provider version-specific bug. 
+  }
 }
 
 

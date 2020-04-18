@@ -16,6 +16,7 @@ module "spoke_network1" {
   route_table_name    = var.route_table_name
   hub_vnet_name       = var.hub_vnet_name
   hub_vnet_rg         = var.hub_vnet_rg
+  hub_vnet_id         = var.hub_vnet_id
   vnet_ip_space       = var.vnet_ip_space
   workload_ip_subnet  = var.workload_ip_subnet
   bastion_ip_subnet   = var.bastion_ip_subnet

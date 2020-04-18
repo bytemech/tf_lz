@@ -38,6 +38,7 @@ module "core" {
   source = "./subscriptions/core"
   providers = {
     azurerm.default = azurerm.core
+    azurerm.hub     = azurerm.hub
   }
 
   vnet_name          = "core_vnet${random_id.core.dec}"
@@ -57,6 +58,7 @@ module "core" {
   firewall_ip_address = module.hub.firewall_private_ip
   hub_vnet_name       = module.hub.hub_vnet_name
   hub_vnet_rg         = module.hub.hub_vnet_rg
+  hub_vnet_id         = module.hub.hub_vnet_id
 }
 
 resource "random_id" "core" {

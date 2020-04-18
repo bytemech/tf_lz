@@ -60,6 +60,11 @@ variable "hub_vnet_rg" {
   default     = ""
 }
 
+variable "hub_vnet_id" {
+  description = "ID of the Hub Virtual Network."
+  type        = string
+}
+
 variable "vnet_ip_space" {
   description = "IP Address Space (CIDR Block) for the Virtual Network to be created."
   type        = list(string)
@@ -77,3 +82,4 @@ variable "bastion_ip_subnet" {
   type        = string
   default     = "10.1.3.192/27"
 }
+

@@ -1,6 +1,6 @@
 output "hub_vnet_id" {
     description = "The ID of the Hub vNet that is created"
-    value = azurerm_virtual_network_vnet.id
+    value = azurerm_virtual_network.vnet.id
 }
 
 output "firewall_private_ip" {

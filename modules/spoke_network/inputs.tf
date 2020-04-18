@@ -36,14 +36,9 @@ variable "vpn_gw_ip_name" {
     default = "VPN_Gateway"
 }
 
-variable "firewall_name" {
-    description = "Name for the Azure Firewall to be created."
-    type = string
-    default = "azure_firewall"
-}
 
-variable "firewall_ip_name" {
-    description = "Name for the Azure Firewall Public IP to be created."
+variable "firewall_ip" {
+    description = "IP to be set as the default route"
     type = string
     default = "azure_firewall_ip"
 }

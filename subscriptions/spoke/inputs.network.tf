@@ -30,7 +30,7 @@ variable "dns_servers" {
     default = ["1.1.1.1","1.0.0.1"]
 }
 
-variable "firewall_ip_address" {
+variable "firewall_ip" {
     description = "IP to be set as the default route"
     type = string
     default = "azure_firewall_ip"
@@ -46,10 +46,4 @@ variable "route_table_name" {
     description = "Name for the Azure Route Table to be created."
     type = string
     default = "hub_route_table"
-}
-
-variable "hub_vnet_id" {
-    description = "Resource ID of the Hub Virtual Network."
-    type = string
-    default = ""
 }

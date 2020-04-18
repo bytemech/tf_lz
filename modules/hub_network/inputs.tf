@@ -23,6 +23,11 @@ variable "tags" {
         environment = "hub"
     }
 }
+variable "dns_servers" {
+    description = ""
+    type = list(string)
+    default = ["1.1.1.1","1.0.0.1"]
+}
 
 variable "vpn_gw_sku" {
     description = "SKU for the VPN Gateway."

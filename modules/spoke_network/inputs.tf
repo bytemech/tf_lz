@@ -1,13 +1,13 @@
 variable "vnet_name" {
     description = "Name of the hub virtual network to be created."
     type = string
-    default = "hub-vnet"
+    default = "spoke-vnet"
 }
 
 variable "rg_name" {
     description = "Name of the hub network resource group to be created."
     type = string
-    default = "hub_network"
+    default = "spoke_network"
 }
 
 variable "location" {
@@ -20,22 +20,15 @@ variable "tags" {
     description = "Map of tags to apply to resources to be created."
     type = map
     default = {
-        environment = "hub"
+        environment = "spoke"
     }
 }
 
-variable "vpn_gw_sku" {
-    description = "SKU for the VPN Gateway."
-    type = string
-    default = "VpnGw1AZ"
+variable "dns_servers" {
+    description = ""
+    type = list(string)
+    default = ["1.1.1.1","1.0.0.1"]
 }
-
-variable "vpn_gw_ip_name" {
-    description = "Name for the VPN Gateway Public IPto be created."
-    type = string
-    default = "VPN_Gateway"
-}
-
 
 variable "firewall_ip" {
     description = "IP to be set as the default route"

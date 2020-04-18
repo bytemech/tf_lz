@@ -1,12 +1,16 @@
-resource "azurerm_virtual_network_peering" "peering" {
-  count = var.hub_vnet_id != "" ? 1 : 0
-  name                         = "Hub-${azurerm_virtual_network.vnet.name}"
-  resource_group_name          = azurerm_resource_group.vnet_rg.name
-  virtual_network_name         = azurerm_virtual_network.vnet.name
-  remote_virtual_network_id    = var.hub_vnet_id
-  allow_virtual_network_access = true
-  allow_forwarded_traffic      = true
+resource "azurerm_virtual_network_peering" "peering-to-hub" {
+  provider                  = azurerm.default
+  name                      = "hub-${var.hub_vnet_name}"
+  resource_group_name       = azurerm_resource_group.vnet_rg.name
+  virtual_network_name      = azurerm_virtual_network.vnet.name
+  remote_virtual_network_id = var.hub_vnet_id
+}
 
-  # `allow_gateway_transit` must be set to false for vnet Global Peering
-  allow_gateway_transit = false
+
+resource "azurerm_virtual_network_peering" "peering-from-hub" {
+  provider                  = azurerm.hub
+  name                      = "spoke-${azurerm_virtual_network.vnet.name}"
+  resource_group_name       = var.hub_vnet_rg
+  virtual_network_name      = var.hub_vnet_name
+  remote_virtual_network_id = azurerm_virtual_network.vnet.id
 }

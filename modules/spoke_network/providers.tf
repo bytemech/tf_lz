@@ -1,3 +1,9 @@
 provider "azurerm" {
-    alias = "hub"
+  alias = "default"
+  #features {}  
+}
+
+provider "azurerm" {
+  alias = "hub"
+  #features {}  
 }

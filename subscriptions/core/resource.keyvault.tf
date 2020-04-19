@@ -8,7 +8,7 @@ data "azurerm_client_config" "current" {
 
 resource "azurerm_key_vault" "breakglass" {
   provider                    = azurerm.default
-  name                        = "${azurerm_resource_group.workload.name}-breakglass"
+  name                        = "${azurerm_resource_group.workload.name}breakglass"
   location                    = azurerm_resource_group.workload.location
   resource_group_name         = azurerm_resource_group.workload.name
   enabled_for_disk_encryption = true

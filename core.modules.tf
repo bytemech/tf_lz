@@ -50,8 +50,8 @@ module "core" {
   workload_ip_subnet = "10.2.0.0/24"
   bastion_ip_subnet  = "10.2.3.160/27"
   
-  automation_rg_name = ""
-  automation_account_name = ""
+  automation_rg_name = "automation${random_id.core.dec}"
+  automation_account_name = "automation-account-${random_id.core.dec}"
 
   tags = {
     environment = "core"

@@ -1,1 +1,1 @@
-location = "ukwest"
+location = "uksouth"

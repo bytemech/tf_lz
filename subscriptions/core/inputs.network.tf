@@ -10,20 +10,6 @@ variable "rg_name" {
   default     = "spoke_network"
 }
 
-variable "location" {
-  description = "Name of the location for resources to be created in."
-  type        = string
-  default     = "ukwest"
-}
-
-variable "tags" {
-  description = "Map of tags to apply to resources to be created."
-  type        = map
-  default = {
-    environment = "spoke"
-  }
-}
-
 variable "dns_servers" {
   description = ""
   type        = list(string)

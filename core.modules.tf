@@ -49,6 +49,9 @@ module "core" {
   vnet_ip_space      = ["10.2.0.0/22"]
   workload_ip_subnet = "10.2.0.0/24"
   bastion_ip_subnet  = "10.2.3.160/27"
+  
+  automation_rg_name = ""
+  automation_account_name = ""
 
   tags = {
     environment = "core"

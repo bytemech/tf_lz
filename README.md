@@ -1,7 +1,7 @@
 #Terraform Landing Zone
 
 ##Background
-This repository is an experimental repository to gauge how much quicker it might be to create a templated Landing Zone using Terraform rather than the ARM/PowerShell native Azure IaC toolchain. 
+This repository is an experimental repository to gauge how much quicker it might be to create a sample Landing Zone using Terraform rather than the ARM/PowerShell native Azure IaC toolchain. 
 
 ##Usage Guidelines
 This repository is licensed under a copyleft license, please see LICENSE in the root of the repository.

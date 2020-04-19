@@ -15,4 +15,5 @@ module "dormantdc1" {
   automation_account_dsc_server_endpoint = module.azure_automation.automation_account_dsc_server_endpoint
   automation_account_dsc_access_key      = module.azure_automation.automation_account_dsc_access_key
   automation_account_dsc_node_name       = "DormantDC.localhost"
+  key_vault_id                           = azurerm_key_vault.breakglass.id
 }

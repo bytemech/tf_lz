@@ -1,13 +1,11 @@
 resource "azurerm_virtual_machine_extension" "dsc" {
   provider             = azurerm.default
   name                 = "DevOpsDSC"
-  location             = var.location
-  resource_group_name  = var.rg_name
-  virtual_machine_name = var.vm_name
+  virtual_machine_id   = azurerm_virtual_machine.main.id
   publisher            = "Microsoft.Powershell"
   type                 = "DSC"
   type_handler_version = "2.73"
-  depends_on           = ["azurerm_virtual_machine.virtual_machine"]
+  depends_on           = [azurerm_virtual_machine.main]
 
   settings = <<SETTINGS
         {

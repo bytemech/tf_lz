@@ -1,6 +1,6 @@
 resource "azurerm_network_interface" "main" {
   provider            = azurerm.default
-  name                = "${var.vmname}-nic0"
+  name                = "${var.vm_name}-nic0"
   location            = var.location
   resource_group_name = var.rg_name
   tags                = var.tags

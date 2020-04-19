@@ -34,17 +34,8 @@ variable "subnet_id" {
   type        = string
 }
 
-variable "automation_account_name" {
-  description = "Name of the Automation Account to be created."
-  type        = string
-}
-
 variable "key_vault_id" {
   description = "ID of the Keyvault to save the breakglass in. Must be in the same subscription."
-}
-
-variable "automation_account_id" {
-  description = "The ID of the Automation Account that is the DSC Pull Server."
 }
 
 variable "automation_account_dsc_server_endpoint" {

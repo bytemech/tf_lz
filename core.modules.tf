@@ -55,6 +55,12 @@ module "core" {
   monitor_rg_name = "monitor${random_id.core.dec}"
   monitor_workspace_name = "workspace${random_id.core.dec}"
   monitor_workspace_retention_days = 30
+  workload_rg_name = "workload${random_id.core.dec}"
+  dormantdc_vm_size = "Standard_Dv2"
+  dormantdc1_name = "dc1${random_id.core.dec}"
+  dormantdc2_name = "dc2${random_id.core.dec}"
+  dormantdc1_ip_addr = "10.2.0.10"
+  dormantdc2_ip_addr = "10.2.0.11"
 
   tags = {
     environment = "core"

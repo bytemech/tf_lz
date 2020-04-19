@@ -39,5 +39,7 @@ resource "azurerm_key_vault" "breakglass" {
   network_acls {
     default_action = "Deny"
     bypass         = "AzureServices"
+    ip_rules       = ["${data.http.localip.body}/32"]
+
   }
 }

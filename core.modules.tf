@@ -52,6 +52,9 @@ module "core" {
   
   automation_rg_name = "automation${random_id.core.dec}"
   automation_account_name = "automation-account-${random_id.core.dec}"
+  monitor_rg_name = "monitor${random_id.core.dec}"
+  monitor_workspace_name = "workspace${random_id.core.dec}"
+  monitor_workspace_retention_days = 30
 
   tags = {
     environment = "core"

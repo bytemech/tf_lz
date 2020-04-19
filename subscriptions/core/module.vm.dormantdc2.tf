@@ -5,7 +5,7 @@ module "dormantdc2" {
     azurerm.default = azurerm.default
   }
 
-  rg_name                                = var.rg_name
+  rg_name                                = var.workload_rg_name
   location                               = var.location
   tags                                   = var.tags
   vm_name                                = var.dormantdc2_name

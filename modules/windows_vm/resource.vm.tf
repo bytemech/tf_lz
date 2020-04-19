@@ -15,6 +15,11 @@ resource "azurerm_virtual_machine" "main" {
     admin_password = random_string.breakglass.result
   }
 
+  os_profile_windows_config {
+    provision_vm_agent        = true
+    enable_automatic_upgrades = true
+  }
+
   storage_os_disk {
     name              = "${var.vm_name}-osdisk"
     caching           = "ReadWrite"

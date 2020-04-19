@@ -4,7 +4,7 @@ variable "vnet_name" {
   default     = "spoke-vnet"
 }
 
-variable "rg_name" {
+variable "vnet_rg_name" {
   description = "Name of the hub network resource group to be created."
   type        = string
   default     = "spoke_network"

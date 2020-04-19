@@ -7,7 +7,7 @@ module "spoke_network" {
   }
 
   vnet_name           = var.vnet_name
-  rg_name             = var.rg_name
+  rg_name             = var.vnet_rg_name
   location            = var.location
   tags                = var.tags
   dns_servers         = var.dns_servers

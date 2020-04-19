@@ -4,10 +4,10 @@ module "spoke1" {
     azurerm.default = azurerm.spoke
     azurerm.hub     = azurerm.hub
   }
-  vnet_name          = "spoke_vnet${random_id.spoke.dec}"
-  rg_name            = "spoke_vnet${random_id.spoke.dec}"
-  bastion_ip_name    = "bastion_ip${random_id.spoke.dec}"
-  route_table_name   = "spoke_vnet${random_id.spoke.dec}"
+  vnet_name          = "spoke_vnet${random_id.spoke.b64_url}"
+  rg_name            = "spoke_vnet${random_id.spoke.b64_url}"
+  bastion_ip_name    = "bastion_ip${random_id.spoke.b64_url}"
+  route_table_name   = "spoke_vnet${random_id.spoke.b64_url}"
   vnet_ip_space      = ["10.3.0.0/22"]
   workload_ip_subnet = "10.3.0.0/24"
   bastion_ip_subnet  = "10.3.3.160/27"

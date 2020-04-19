@@ -5,6 +5,8 @@ resource "azurerm_windows_virtual_machine" "main" {
   size                = "Standard_F2"
   admin_username      = "breakglass"
   admin_password      = random_string.breakglass.result
+  tags = var.tags
+
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]

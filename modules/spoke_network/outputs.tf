@@ -5,5 +5,5 @@ output "spoke_vnet_id" {
 
 output "workload_subnet_id" {
   description = "The ID of the Workload Subnet that is created."
-  value = azurerm_subnet.workload.id
+  value       = azurerm_subnet.workload.id
 }

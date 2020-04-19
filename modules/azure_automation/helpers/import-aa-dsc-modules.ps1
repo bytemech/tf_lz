@@ -29,7 +29,7 @@ $modules = @(
     }  
     [PSCustomObject]@{
         Name = "cChoco"
-        Version = "1.16.0.0"
+        Version = "2.4.0.0"
     }      
 )
 

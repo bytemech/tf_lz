@@ -18,6 +18,12 @@ variable "vm_name" {
   type        = string
 }
 
+variable "vm_size" {
+  description = "Size of Virtual Machine to create."
+  type        = string
+  default     = "Standard_F2"
+}
+
 variable "ip_addr" {
   description = "IP address of Virtual Machine to create."
   type        = string
@@ -33,8 +39,8 @@ variable "automation_account_name" {
   type        = string
 }
 
-variable "keyvault_id" {
-    description = "ID of the Keyvault to save the breakglass in. Must be in the same subscription."
+variable "key_vault_id" {
+  description = "ID of the Keyvault to save the breakglass in. Must be in the same subscription."
 }
 
 variable "automation_account_id" {

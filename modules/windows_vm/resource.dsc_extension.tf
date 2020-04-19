@@ -1,4 +1,5 @@
 resource "azurerm_virtual_machine_extension" "dsc" {
+  provider             = azurerm.default
   name                 = "DevOpsDSC"
   location             = var.location
   resource_group_name  = var.rg_name

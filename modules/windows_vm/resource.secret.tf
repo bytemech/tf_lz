@@ -1,8 +1,8 @@
 resource "azurerm_key_vault_secret" "breakglass" {
-  name = "${var.vm_name}-breakglass"
-
+  provider     = azurerm.default
+  name         = "${var.vm_name}-breakglass"
   value        = random_string.breakglass.result
-  key_vault_id = data.azurerm_key_vault.vm.id
+  key_vault_id = var.key_vault_id
 }
 
 resource "random_string" "breakglass" {

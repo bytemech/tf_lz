@@ -24,6 +24,7 @@ configuration DormantDC
     Import-DscResource -ModuleName NetworkingDsc -ModuleVersion 7.4.0.0
     Import-DscResource -ModuleName xPendingReboot -ModuleVersion 0.4.0.0
     Import-DscResource -ModuleName xDnsServer -ModuleVersion 1.16.0.0
+    Import-DscResource -ModuleName cChoco -ModuleVersion 2.4.0.0
 
     Node localhost
     {
@@ -96,6 +97,20 @@ configuration DormantDC
             DiskId      = 2
             DriveLetter = "F"
             DependsOn   = "[WaitForDisk]Disk2"
+        }
+        cChocoInstaller installChoco
+        {
+            InstallDir = "c:\choco"
+        }
+        cChocoPackageInstaller installChrome
+        {
+            Ensure    = 'Present'
+            Name      = @(
+                "notepadplusplus"
+                "7zip"
+                "bginfo"
+            )
+            DependsOn = "[cChocoInstaller]installChoco"
         }
 
     }

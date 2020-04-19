@@ -1,11 +1,12 @@
 resource "azurerm_windows_virtual_machine" "main" {
-  name                = "example-machine"
-  resource_group_name = azurerm_resource_group.example.name
-  location            = azurerm_resource_group.example.location
-  size                = "Standard_F2"
+  provider            = azurerm.default
+  name                = var.vm_name
+  resource_group_name = var.rg_name
+  location            = var.location
+  size                = var.vm_size
   admin_username      = "breakglass"
   admin_password      = random_string.breakglass.result
-  tags = var.tags
+  tags                = var.tags
 
   network_interface_ids = [
     azurerm_network_interface.main.id,
@@ -23,3 +24,15 @@ resource "azurerm_windows_virtual_machine" "main" {
     version   = "latest"
   }
 }
+
+resource "azurerm_managed_disk" "data" {
+  provider             = azurerm.default
+  name                 = "${var.vm_name}-data0"
+  location             = var.location
+  resource_group_name  = var.rg_name
+  storage_account_type = "StandardSSD_LRS"
+  create_option        = "Empty"
+  disk_size_gb         = "120"
+  tags                 = var.tags
+}
+

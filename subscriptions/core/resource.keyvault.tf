@@ -1,9 +1,9 @@
 data "http" "localip" {
-    url = "http://canihazip.com/s"
+  url = "http://canihazip.com/s"
 }
 
 resource "azurerm_key_vault" "example" {
-  provider = azurerm.default
+  provider                    = azurerm.default
   name                        = "${azurerm_resource_group.workload.name}-breakglass"
   location                    = azurerm_resource_group.workload.location
   resource_group_name         = azurerm_resource_group.workload.name
@@ -11,7 +11,7 @@ resource "azurerm_key_vault" "example" {
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   soft_delete_enabled         = true
   purge_protection_enabled    = false
-  tags = var.tags
+  tags                        = var.tags
 
   sku_name = "standard"
 

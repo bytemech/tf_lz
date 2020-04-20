@@ -45,7 +45,7 @@ configuration DormantDC
             }
 
             GetScript  = { @{ } }
-            TestScript = { $false }
+            TestScript = { $null -eq $(Get-DnsServerDiagnostics | ? {$_. -eq $false})  }
             DependsOn  = "[WindowsFeature]DNS"
         }
 

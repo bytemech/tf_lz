@@ -25,6 +25,7 @@ configuration DormantDC
     Import-DscResource -ModuleName xPendingReboot -ModuleVersion 0.4.0.0
     Import-DscResource -ModuleName xDnsServer -ModuleVersion 1.16.0.0
     Import-DscResource -ModuleName cChoco -ModuleVersion 2.4.0.0
+    Import-DscResource -ModuleName PSDesiredStateConfiguration
 
     Node localhost
     {
@@ -102,14 +103,10 @@ configuration DormantDC
         {
             InstallDir = "c:\choco"
         }
-        cChocoPackageInstaller installChrome
+        cChocoPackageInstaller bginfo
         {
+            Name      = 'bginfo'
             Ensure    = 'Present'
-            Name      = @(
-                "notepadplusplus"
-                "7zip"
-                "bginfo"
-            )
             DependsOn = "[cChocoInstaller]installChoco"
         }
 

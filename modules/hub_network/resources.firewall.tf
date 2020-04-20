@@ -33,3 +33,32 @@ resource "azurerm_firewall" "firewall" {
     public_ip_address_id = azurerm_public_ip.firewall.id
   }
 }
+
+resource "azurerm_firewall_network_rule_collection" "Allow_Outbound_Traffic" {
+  provider            = azurerm.default
+  name                = "Allow_Outbound_Traffic"
+  azure_firewall_name = azurerm_firewall.firewall.name
+  resource_group_name = azurerm_resource_group.vnet_rg.name
+  priority            = 100
+  action              = "Allow"
+
+  rule {
+    name = "testrule"
+
+    source_addresses = [
+      var.azure_ip_space,
+    ]
+
+    destination_ports = [
+      "*",
+    ]
+
+    destination_addresses = [
+      "*"
+    ]
+
+    protocols = [
+      "Any"
+    ]
+  }
+}

@@ -10,7 +10,7 @@ resource "azurerm_virtual_machine" "main" {
     azurerm_network_interface.main.id,
   ]
   os_profile {
-    computer_name  = "var.vm_name"
+    computer_name  = var.vm_name
     admin_username = "breakglass"
     admin_password = random_string.breakglass.result
   }

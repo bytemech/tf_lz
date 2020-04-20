@@ -4,31 +4,31 @@ resource "azurerm_virtual_machine_extension" "dsc" {
   virtual_machine_id   = azurerm_virtual_machine.main.id
   publisher            = "Microsoft.Powershell"
   type                 = "DSC"
-  type_handler_version = "2.73"
+  type_handler_version = "2.77"
   depends_on           = [azurerm_virtual_machine.main]
 
   settings = <<SETTINGS
         {
-            "WmfVersion": "latest",
-            "ModulesUrl": "https://eus2oaasibizamarketprod1.blob.core.windows.net/automationdscpreview/RegistrationMetaConfigV2.zip",
-            "ConfigurationFunction": "RegistrationMetaConfigV2.ps1\\RegistrationMetaConfigV2",
-            "Privacy": {
-                "DataCollection": ""
-            },
-            "Properties": {
-                "RegistrationKey": {
+          "Properties": [
+              {
+                "Name": "RegistrationKey",
+                "Value": {
                   "UserName": "PLACEHOLDER_DONOTUSE",
                   "Password": "PrivateSettingsRef:registrationKeyPrivate"
                 },
-                "RegistrationUrl": "${var.automation_account_dsc_server_endpoint}",
-                "NodeConfigurationName": "${var.automation_account_dsc_node_name}",
-                "ConfigurationMode": "ApplyAndMonitor",
-                "ConfigurationModeFrequencyMins": 15,
-                "RefreshFrequencyMins": 30,
-                "RebootNodeIfNeeded": false,
-                "ActionAfterReboot": "continueConfiguration",
-                "AllowModuleOverwrite": false
-            }
+                "TypeName": "System.Management.Automation.PSCredential"
+              },
+              {
+                "Name": "RegistrationUrl",
+                "Value": "${var.automation_account_dsc_server_endpoint}",
+                "TypeName": "System.String"
+              },
+              {
+                "Name": "NodeConfigurationName",
+                "Value": "${var.automation_account_dsc_node_name}",
+                "TypeName": "System.String"
+              }
+            ]
         }
     SETTINGS
 

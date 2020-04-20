@@ -16,7 +16,7 @@ provider "azurerm" {
 #<Please edit if you have copied this file (i.e. replace spoke1 with spoke2)
 module "spoke1" {
   providers = {
-    azurerm.default = azurerm.settings.spoke1.tf
+    azurerm.default = azurerm.spoke1
     #>
     #<Please do not edit
     azurerm.hub = azurerm.hub

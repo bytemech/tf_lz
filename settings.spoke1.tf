@@ -1,9 +1,29 @@
+provider "azurerm" {
+  #<Please edit
+  subscription_id = "fc1d3a4d-16b5-4232-b28b-963e7844911b"
+  #>
+
+  #<Please edit if you have copied this file
+  alias = "spoke1"
+  #>
+
+  #<Please do not edit
+  version = "=1.44.0" #See https://github.com/terraform-providers/terraform-provider-azurerm/issues/6516
+  #features {} 
+  #> 
+}
+
+#<Please edit if you have copied this file (i.e. replace spoke1 with spoke2)
 module "spoke1" {
-  source = "./subscriptions/spoke"
   providers = {
-    azurerm.default = azurerm.spoke
-    azurerm.hub     = azurerm.hub
+    azurerm.default = azurerm.settings.spoke1.tf
+    #>
+    #<Please do not edit
+    azurerm.hub = azurerm.hub
   }
+  #>
+
+  #<Please edit
   vnet_name          = "spoke_vnet${random_id.spoke.b64_url}"
   rg_name            = "spoke_vnet${random_id.spoke.b64_url}"
   bastion_ip_name    = "bastion_ip${random_id.spoke.b64_url}"
@@ -14,7 +34,10 @@ module "spoke1" {
   tags = {
     environment = "spoke"
   }
+  #>
 
+  #<Please do not edit
+  source              = "./subscriptions/spoke"
   location            = var.location
   dns_servers         = module.hub.dns_servers
   firewall_ip_address = module.hub.firewall_private_ip
@@ -22,7 +45,6 @@ module "spoke1" {
   hub_vnet_rg         = module.hub.hub_vnet_rg
   hub_vnet_id         = module.hub.hub_vnet_id
 }
-
 resource "random_id" "spoke" {
   byte_length = 4
 
@@ -30,3 +52,4 @@ resource "random_id" "spoke" {
     location = var.location
   }
 }
+#>

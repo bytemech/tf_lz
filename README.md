@@ -9,9 +9,7 @@ This repository is licensed under a copyleft license, please see LICENSE in the 
 #Instructions 
 
 1. Clone the repository to your machine
-2. Enter the details of a Storage Account for the tf statefile in the terraform {} block in main.tf
-3. Enter the subscription IDs for the hub and core subscriptions in core.providers.tf
-4. For N number of spokes, create/copy N number of provider contexts in optional.providers.tf
-5. For N number of spokes, create/copy N number of modules in optional.modules.tf
-6. In the root of the directory, run terraform init / terraform apply
-7. Profit
+2. Edit the areas in the settings files marked "please edit"
+3. For N number of spokes, create/copy N number of settings.spoke1.tf, replacing "spoke1" with the correct number. 
+4. In the root of the directory, run terraform init / terraform apply
+5. Profit

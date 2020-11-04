@@ -1,12 +1,12 @@
-#Terraform Landing Zone
+# Terraform Landing Zone
 
-##Background
+## Background
 This repository is an experimental repository to gauge how much quicker it might be to create a sample Landing Zone using Terraform rather than the ARM/PowerShell native Azure IaC toolchain. 
 
-##Usage Guidelines
+## Usage Guidelines
 This repository is licensed under a copyleft license, please see LICENSE in the root of the repository.
 
-#Instructions 
+# Instructions 
 
 1. Clone the repository to your machine
 2. Edit the areas in the settings files marked "please edit"
